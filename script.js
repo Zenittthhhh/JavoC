@@ -1,5 +1,4 @@
 // script.js
-
 // Variables globales
 let leones = 0;
 let autoClickerCount = 0;
