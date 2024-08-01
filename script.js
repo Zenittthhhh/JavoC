@@ -35,7 +35,7 @@ const clickMultipliers = {
 };
 
 // Función para calcular el costo progresivo de cada mejora
-const getProgressiveCost = (baseCost, count) =&gt; {
+const getProgressiveCost = (baseCost, count) => {
     return Math.round(baseCost * Math.pow(1.15, count));
 };
 
@@ -44,7 +44,7 @@ const body = document.body;
 const backgroundImageUrl = body.getAttribute('data-background');
 body.style.backgroundImage = `url('${backgroundImageUrl}')`;
 
-const updateButtonImage = (button, imageUrl) =&gt; {
+const updateButtonImage = (button, imageUrl) => {
     button.style.backgroundImage = `url('${imageUrl}')`;
     button.style.backgroundSize = 'cover';
     button.style.backgroundPosition = 'center';
@@ -88,11 +88,11 @@ function updateDisplay() {
     ultraClickButton.textContent = `Ultra Click (${getProgressiveCost(initialCosts.ultraClick, ultraClickCount)} leones)`;
 
     // Habilitar o deshabilitar botones dependiendo del número de leones
-    autoClickerButton.disabled = leones &lt; getProgressiveCost(initialCosts.autoClicker, autoClickerCount);
-    doubleClickButton.disabled = leones &lt; getProgressiveCost(initialCosts.doubleClick, doubleClickCount);
-    megaClickButton.disabled = leones &lt; getProgressiveCost(initialCosts.megaClick, megaClickCount);
-    superClickButton.disabled = leones &lt; getProgressiveCost(initialCosts.superClick, superClickCount);
-    ultraClickButton.disabled = leones &lt; getProgressiveCost(initialCosts.ultraClick, ultraClickCount);
+    autoClickerButton.disabled = leones < getProgressiveCost(initialCosts.autoClicker, autoClickerCount);
+    doubleClickButton.disabled = leones < getProgressiveCost(initialCosts.doubleClick, doubleClickCount);
+    megaClickButton.disabled = leones < getProgressiveCost(initialCosts.megaClick, megaClickCount);
+    superClickButton.disabled = leones < getProgressiveCost(initialCosts.superClick, superClickCount);
+    ultraClickButton.disabled = leones < getProgressiveCost(initialCosts.ultraClick, ultraClickCount);
 }
 
 // Cargar el progreso al inicio
@@ -100,7 +100,7 @@ loadProgress();
 updateDisplay();
 
 // Click del usuario en la imagen
-leonesElement.addEventListener('click', () =&gt; {
+leonesElement.addEventListener('click', () => {
     // Calculamos el total de leones a añadir con los multiplicadores
     const baseLeones = 1;
     const totalLeonesToAdd = baseLeones * (
@@ -118,9 +118,9 @@ leonesElement.addEventListener('click', () =&gt; {
 // Auto Clicker
 let autoClickerInterval = null;
 
-const startAutoClicker = () =&gt; {
+const startAutoClicker = () => {
     if (autoClickerInterval) return; // No inicia otro intervalo si ya hay uno activo
-    autoClickerInterval = setInterval(() =&gt; {
+    autoClickerInterval = setInterval(() => {
         const leonesPerInterval = autoClickerCount; // Cada autoclicker añade 1 león por intervalo
         leones += leonesPerInterval;
         updateDisplay();
@@ -129,15 +129,15 @@ const startAutoClicker = () =&gt; {
 };
 
 // Parar Auto Clicker
-const stopAutoClicker = () =&gt; {
+const stopAutoClicker = () => {
     clearInterval(autoClickerInterval);
     autoClickerInterval = null;
 };
 
 // Eventos de botones de mejoras
-autoClickerButton.addEventListener('click', () =&gt; {
+autoClickerButton.addEventListener('click', () => {
     const cost = getProgressiveCost(initialCosts.autoClicker, autoClickerCount);
-    if (leones &gt;= cost) {
+    if (leones >= cost) {
         leones -= cost;
         autoClickerCount++;
         updateDisplay();
@@ -146,9 +146,9 @@ autoClickerButton.addEventListener('click', () =&gt; {
     }
 });
 
-doubleClickButton.addEventListener('click', () =&gt; {
+doubleClickButton.addEventListener('click', () => {
     const cost = getProgressiveCost(initialCosts.doubleClick, doubleClickCount);
-    if (leones &gt;= cost) {
+    if (leones >= cost) {
         leones -= cost;
         doubleClickCount++;
         updateDisplay();
@@ -156,9 +156,9 @@ doubleClickButton.addEventListener('click', () =&gt; {
     }
 });
 
-megaClickButton.addEventListener('click', () =&gt; {
+megaClickButton.addEventListener('click', () => {
     const cost = getProgressiveCost(initialCosts.megaClick, megaClickCount);
-    if (leones &gt;= cost) {
+    if (leones >= cost) {
         leones -= cost;
         megaClickCount++;
         updateDisplay();
@@ -166,9 +166,9 @@ megaClickButton.addEventListener('click', () =&gt; {
     }
 });
 
-superClickButton.addEventListener('click', () =&gt; {
+superClickButton.addEventListener('click', () => {
     const cost = getProgressiveCost(initialCosts.superClick, superClickCount);
-    if (leones &gt;= cost) {
+    if (leones >= cost) {
         leones -= cost;
         superClickCount++;
         updateDisplay();
@@ -176,12 +176,12 @@ superClickButton.addEventListener('click', () =&gt; {
     }
 });
 
-ultraClickButton.addEventListener('click', () =&gt; {
+ultraClickButton.addEventListener('click', () => {
     const cost = getProgressiveCost(initialCosts.ultraClick, ultraClickCount);
-    if (leones &gt;= cost) {
+    if (leones >= cost) {
         leones -= cost;
         ultraClickCount++;
         updateDisplay();
         saveProgress();
     }
-});</body></html>
+});
