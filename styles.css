@@ -1,0 +1,90 @@
+<html><head></head><body>/* styles.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.game-container {
+    text-align: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #006400; /* Color principal para el título */
+}
+
+.leones-display {
+    margin-bottom: 30px;
+}
+
+#leones {
+    width: 150px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+#leones:hover {
+    transform: scale(1.1);
+}
+
+#leones-count {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.shop {
+    margin-top: 30px;
+    background: rgba(28, 28, 28, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.shop h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #006400;
+}
+
+.shop-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.upgrade {
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.1s ease;
+    width: 150px;
+    height: 100px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: #333; /* Fallback color */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.upgrade:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.upgrade:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}</body></html>
